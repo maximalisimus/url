@@ -100,6 +100,7 @@ ul.mainMenu ul li {
 	font-size: 0.9em;
 	border: 1px solid black;
 	border-top: none;
+	min-height: 32px;
 }
 img.menuImg {
 	display: inline-block;
@@ -250,6 +251,7 @@ img.myprev {
 	-ms-box-shadow: none;
 	left: -5px;
 	top: -8px;
+	width: 32px;
 }
 div.images img {
 	display: inline-block;
