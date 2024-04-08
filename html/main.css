@@ -122,6 +122,12 @@ BODY {
 	-webkit-border-radius: 7px;
 	-o-border-radius: 7px;
 	-ms-border-radius: 7px;
+	
+	background: linear-gradient(45deg, #A9AFC8, #ECF2F5);
+	background: -moz-linear-gradient(45deg,#A9AFC8, #ECF2F5);
+	background: -webkit-linear-gradient(45deg, #A9AFC8, #ECF2F5);
+	background: -o-linear-gradient(45deg, #A9AFC8, #ECF2F5);
+	background: -ms-linear-gradient(45deg, #A9AFC8, #ECF2F5);
 }
 .content p {
 	text-indent: 25px;

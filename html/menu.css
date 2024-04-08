@@ -71,10 +71,10 @@ p.hdMenu {
 	font-weight: bold;
 	font-size: 1.1em;
 	border: 1px solid white;
-	background-color: rgba(204, 232, 204, 0.5);
+	background-color: rgba(204, 232, 232, 0.5);
 }
 .mainMenu li:hover {
-	background-color: rgba(204, 223, 232, 1.0);
+	background-color: rgba(204, 223, 204, 1.0);
 	
 	transition: all 0.4s;
 	-moz-transition: all 0.4s;
@@ -139,7 +139,7 @@ img.subMenuImg {
 	left: 0px;
 }
 ul.mainMenu ul li:hover {
-	background-color: rgba(204, 223, 232, 1.0);
+	background-color: rgba(204, 223, 204, 1.0);
 	
 	transition: all 0.4s;
 	-moz-transition: all 0.4s;
