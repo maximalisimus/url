@@ -1,3 +1,7 @@
+/*
+	Base Menu Style
+ */
+ 
 .myabout {
 	display: inline-block;
 	position: relative;
@@ -330,4 +334,34 @@ ol.globalMenu li a:hover {
 ol.globalMenu li a:visited {
 	text-decoration: none;
 	color: blue;
+}
+
+/*
+	OL LI CSS Mode
+ */
+ 
+ ol
+{
+	counter-reset: list1;  /* Список первого уровня */
+}
+
+ol li
+{
+	list-style-type: none;  /* Убираем исходную нумерацию */
+}
+
+ol li:before
+{
+	counter-increment: list1; /* Увеличиваем значение счетчика */
+	content: counter(list1) ". "; /* Выводим значение в виде 1., 2.*/
+}
+
+ol ol 
+{
+	counter-reset: list2;  /* Список второго уровня*/
+}
+
+ol ol li:before { /* Список второго уровня */
+	counter-increment: list2; /* Увеличиваем значение счетчика */
+	content: counter(list1) "." counter(list2) ". "; /* Выводим значение типа 2.1, 2.2,... */
 }
