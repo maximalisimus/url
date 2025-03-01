@@ -1,0 +1,16 @@
+﻿
+
+
+https://www.browserling.com/tools/random-hex
+
+How many digits?: 116
+How many results?: 1
+
+Example: 287fe5e0d3bcdbf8b13a292a8d0e5159ac0543981f58c2c5cfa1ce55c588e9f6cb80013aff9bcbcf625dd5303554ead5b751e7d0ae13af3cebe6
+ 
+https://github.com/ValdikSS/GoodbyeDPI
+https://github.com/ValdikSS/GoodbyeDPI/releases
+
+
+start "" goodbyedpi.exe -7 -e1 -q --native-frag --wrong-chksum --fake-gen 5 --set-ttl 4 --fake-from-hex 287fe5e0d3bcdbf8b13a292a8d0e5159ac0543981f58c2c5cfa1ce55c588e9f6cb80013aff9bcbcf625dd5303554ead5b751e7d0ae13af3cebe6  --blacklist ..\russia-blacklist.txt --blacklist ..\russia-youtube.txt
+
