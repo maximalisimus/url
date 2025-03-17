@@ -255,6 +255,16 @@ BODY {
 	background-color: #ccdfe8;
 	text-indent: 0px;
 }
+.content p.selections::before {
+	content: "#";
+}
+.content p.selections:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+.content p.selections:hover::after {
+	content: " ❑ ❒";
+}
 .clearfix:after {
   content: "";
   display: table;
