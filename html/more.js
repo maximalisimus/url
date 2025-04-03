@@ -4,7 +4,8 @@ function copyToClipboard(str) {
  var area = document.createElement('textarea');
  
  document.body.appendChild(area);
- area.value = 'https://vk.com/feed?section=search&q=%23' + str;
+ //area.value = 'https://vk.com/feed?section=search&q=%23' + str;
+ area.value = '#' + str;
  area.select();
  document.execCommand("copy");
  document.body.removeChild(area);
