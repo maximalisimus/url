@@ -1,0 +1,17 @@
+.content p.selections::before {
+	content: "";
+}
+.content p.codes:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+.content p.codes:hover::after {
+	content: " ❑ ❒";
+}
+.content .codeses:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+.content .codeses:hover::after {
+	content: " ❑ ❒";
+}

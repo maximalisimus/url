@@ -1,0 +1,63 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>FFMPEG Readme</title>
+	<link rel="icon" href="../image/user/applications/ffmpeg.svg" type=" image/svg+xml">
+	<link rel="stylesheet" href="../html/main.css" type="text/css">
+	<link rel="stylesheet" href="../html/menu.css">
+	<link rel="stylesheet" href="../html/codes.css">
+</head>
+<body>
+	<div class="site">
+		<div class="header">
+			<div id="logo">
+				<p style="margin:10px; padding:0px;">FFMPEG Readme</p>
+			</div>
+		</div>
+		<div class="content">
+			<table border="0">
+					<tr><td width="150" align="right">Author:</td><td width="10"></td><td>Mikhail Artamonov</td></tr>
+					<tr><td width="150" align="right">Git clone:</td><td width="10"></td><td><a href="https://github.com/maximalisimus/url.git">https://github.com/maximalisimus/url.git</a></td></tr>
+			</table>
+		</div>
+		<div class="content">
+			<p><b>&laquo;convert.bat&raquo;</b>:</p>
+			<div class="codeses selections">
+				<pre>@cd/d "%~dp0"
+@echo off
+
+SET vpath=%CD%
+for /R "%CD%\" %%i IN (*.mov) do (
+    ffmpeg.exe -i "%vpath%\%%~ni.mov" -vcodec libx264 -acodec aac "%vpath%\%%~ni.mp4"
+)</pre>
+			</div>
+			<p>Операции подстановки ссылок на переменные команды FOR также расширены.</p>
+			<p>Допускается применение следующих синтаксических конструкций:</p>
+			<ul>
+				<li>%~I - из переменной %I удаляются обрамляющие кавычки (")</li>
+				<li>%~fI - переменная %I расширяется до полного имени файла</li>
+				<li>%~dI - из переменной %I выделяется только имя диска</li>
+				<li>%~pI - из переменной %I выделяется только путь к файлу</li>
+				<li>%~nI - из переменной %I выделяется только имя файла</li>
+				<li>%~xI - из переменной %I выделяется расширение имени файла</li>
+				<li>%~sI - полученный путь содержит только короткие имена</li>
+				<li>%~aI - переменная %I расширяется до атрибутов файла</li>
+				<li>%~tI - переменная %I расширяется до даты /времени файла</li>
+				<li>%~zI - переменная %I расширяется до размера файла</li>
+			</ul>
+			<p class="selections" style="border-left: 5px solid #548eaa; background-color: #ccdfe8;">ffmpeg.exe -i "video.flv" -vcodec libx264 -acodec aac "video.mp4"</p>
+			<p class="selections" style="border-left: 5px solid #548eaa; background-color: #ccdfe8;">ffmpeg.exe -i "video.mp4" -vcodec libx264 -acodec aac "video2.mp4"</p>
+			<p class="selections" style="border-left: 5px solid #548eaa; background-color: #ccdfe8;">ffmpeg.exe -i "master.mkv" -vcodec libx264 -acodec aac "master.mp4"</p>
+			<p class="selections" style="border-left: 5px solid #548eaa; background-color: #ccdfe8;">ffmpeg.exe -i video.mp4 -b:a 192K -vn music.mp3</p>
+			<p class="selections" style="border-left: 5px solid #808080; background-color: #d9d9d9;">-c:v mpeg4</p>
+			<p class="selections" style="border-left: 5px solid #808080; background-color: #d9d9d9;">-vcodec mpeg4</p>
+		</div>
+		<div class="about">
+			<img class="myabout" src="../html/about.ico" width="32px"/>
+			<p>Copyright &copy; 14.04.2025 by <a href="mailto:maximalisimus121@mail.ru">Mikhail Artamonov</a></p>
+		</div>
+		</br>
+	</div>
+	<script type="text/javascript" src="../html/next.js"></script>
+</body>
+</html>
