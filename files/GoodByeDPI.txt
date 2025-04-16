@@ -14,3 +14,33 @@ https://github.com/ValdikSS/GoodbyeDPI/releases
 
 start "" goodbyedpi.exe -7 -e1 -q --native-frag --wrong-chksum --fake-gen 5 --set-ttl 4 --fake-from-hex 287fe5e0d3bcdbf8b13a292a8d0e5159ac0543981f58c2c5cfa1ce55c588e9f6cb80013aff9bcbcf625dd5303554ead5b751e7d0ae13af3cebe6  --blacklist ..\russia-blacklist.txt --blacklist ..\russia-youtube.txt
 
+start "" goodbyedpi.exe -e1 -q --native-frag --wrong-chksum --fake-from-hex 1603030135010001310303424143facf5c983ac8ff20b819cfd634cbf5143c0005b2b8b142a6cd335012c220008969b6b387683dedb4114d466ca90be3212b2bde0c4f56261a9801 --fake-gen 5 --set-ttl 4 --blacklist ..\russia-blacklist.txt --blacklist ..\russia-youtube.txt
+ 
+-e 1 -q --native-frag --wrong-chksum --fake-from-hex 1603030135010001310303424143facf5c983ac8ff20b819cfd634cbf5143c0005b2b8b142a6cd335012c220008969b6b387683dedb4114d466ca90be3212b2bde0c4f56261a9801 --fake-gen 5 --set-ttl 4
+ 
+-e 1 --fake-from-hex 1603030135010001310303424143facf5c983ac8ff20b819cfd634cbf5143c0005b2b8b142a6cd335012c220008969b6b387683dedb4114d466ca90be3212b2bde0c4f56261a9801 -q --frag-by-sni --set-ttl 4 --fake-gen 10
+ 
+-e 1 -q --reverse-frag --wrong-chksum --fake-from-hex 1603030135010001310303424143facf5c983ac8ff20b819cfd634cbf5143c0005b2b8b142a6cd335012c220008969b6b387683dedb4114d466ca90be3212b2bde0c4f56261a9801 --fake-gen 15 --set-ttl 3
+ 
+start "" goodbyedpi.exe -1 -e1 -f 1 --frag-by-sni -q --wrong-chksum --fake-gen 15 --set-ttl 5 --fake-from-hex 8b7f1f0e48059270a50640acb7c7af728a8f40d281372ca15c72ded8e4716ff155cfb4c888f873e5b7544dc9e651568d17e85e3926f17eeaa58f --dns-addr 77.88.8.8 --dns-port 1253 --dnsv6-addr 2a02:6b8::feed:0ff --dnsv6-port 1253 --blacklist ..\russia-blacklist.txt --blacklist ..\russia-youtube.txt
+ 
+ 
+-q (do_block_quic) — блокирует трафик, использующий протокол QUIC, который часто используется для обхода DPI и улучшения скорости загрузки. 1
+-r (do_host) — включает блокировку по хосту, программа будет фильтровать или изменять трафик на основе имени хоста. 1
+-s (do_host_removespace) — программа будет обрабатывать имена хостов, удаляя любые пробелы. 1
+-a (do_additional_space) — включает дополнительное пространство в заголовках HTTP. 1
+-m (do_host_mixedcase) — программа будет обрабатывать имена хостов, позволяя использование смешанного регистра. 1
+-f <size> (do_fragment_http) — устанавливает размер фрагмента (фрагментации) для HTTP-трафика, чтобы обойти ограничения или блокировки. 1
+-k <size> (do_fragment_http_persistent) — устанавливает размер фрагмента (фрагментации) для HTTP-постоянных соединений, чтобы обеспечить поддержку фрагментации. 1
+-n (do_fragment_http_persistent_nowait) — программа будет фрагментировать HTTP-трафик без ожидания дополнительного времени. 1
+-e <size> (do_fragment_https) — устанавливает размер фрагмента для HTTPS-трафика. 1
+-w (do_http_allports) — программа будет фрагментировать HTTP-трафик на всех портах. 1
+-z <port> (dnsv4_port) — устанавливает порт для перенаправления DNS-трафика, по умолчанию 53. 1
+-d (debug_exit) — программа будет выводить дополнительные отлавочные сообщения. 1
+-h (usage) — показывает информацию о том, как использовать программу и какие опции доступны. 1
+--fake-from-hex <value> — позволяет вручную указать содержимое фейковых пакетов в шестнадцатеричном формате. 1
+--fake-gen <value> — автоматически генерирует случайные фейковые пакеты, которые могут использоваться для создания «шума» в трафике. 1
+--fake-resend <value> — повторная отправка каждого фейкового пакета может создать дополнительную нагрузку на систему DPI, потенциально снижая её способность анализировать трафик в реальном времени. 1
+ 
+ 
+
