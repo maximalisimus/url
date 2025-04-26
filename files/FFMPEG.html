@@ -21,7 +21,9 @@
 			</table>
 		</div>
 		<div class="content">
+			<h3>Download FFMPEG.</h3>
 			<p>Скачать <a href="https://github.com/maximalisimus/Archivers-Configs-Linux/releases/download/v3.0/ffmpeg-27.06.2022-sfx.exe">&laquo;ffmpeg-27.06.2022-sfx.exe&raquo;</a> c Github-Release.</p>
+			<h3>Params.</h3>
 			<p><b>&laquo;convert.bat&raquo;</b>:</p>
 			<div class="codeses selections">
 				<pre>@cd/d "%~dp0"
@@ -78,6 +80,68 @@ for /R "%CD%\" %%i IN (*.mov) do (
 			<p>Bash script.</p>
 			<p class="codes selections">
 				for i in *.ogg; do ffmpeg -i "$i" -acodec libmp3lame "${i%.*}.mp3"; done
+			</p>
+			<h3>Concat &laquo;.mp3&raquo;</h3>
+			<p><b>Example-1.</b></p>
+			<p><b>&laquo;list.txt&raquo;</b></p>
+			<p class="codes">
+				file '/path/to/first.mp3'</br>
+				file '/path/to/second.mp3'
+			</p>
+			<p>Command.</p>
+			<p class="codes selections">
+				ffmpeg.exe -f concat -i list.txt -c copy out.mp3
+			</p>
+			<p><b>Example-2.</b></p>
+			<p class="codes selections">
+				ffmpeg.exe -i first.mp3 -i second.mp3 -filter_complex [0:a][1:a]concat=n=2:v=0:a=1 out.mp3
+			</p>
+			<p><b>Example-3.</b></p>
+			<p class="codes selections">
+				ffmpeg.exe -i 'concat:1.mp3|2.mp3|3.mp3' -c copy output.mp3
+			</p>
+			<p><b>Example-4.</b></p>
+			<p>Bash.</p>
+			<p class="codes selections">
+				for f in *.mp3; do echo "file '$f'" >> inputs.txt; done
+			</p>
+			<p>And command.</p>
+			<p class="codes selections">
+				ffmpeg.exe -f concat -i inputs.txt -c copy output.mp3
+			</p>
+			<h3>Concat &laquo;.mp4&raquo;</h3>
+			<p>Command.</p>
+			<p class="codes selections">
+				ffmpeg.exe -i opening.mkv -i episode.mkv -i ending.mkv \</br>
+				-filter_complex "[0:v] [0:a] [1:v] [1:a] [2:v] [2:a] \</br>
+				concat=n=3:v=1:a=1 [v] [a]" \</br>
+				-map "[v]" -map "[a]" output.mkv
+			</p>
+			<p><b>Demuxer</b></p>
+			<p>&laquo;mylist.txt&raquo;</p>
+			<p class="codes">
+				file '/path/to/file1'</br>
+				file '/path/to/file2'</br>
+				file '/path/to/file3'
+			</p>
+			<p>Command</p>
+			<p class="codes selections">
+				ffmpeg.exe -f concat -i mylist.txt -c copy output.mp4
+			</p>
+			<p>CMD</p>
+			<p class="codes selections">
+				(echo file 'first file.mp4' & echo file 'second file.mp4' )>list.txt<br>
+				ffmpeg.exe -safe 0 -f concat -i list.txt -c copy output.mp4
+			</p>
+			<p>or</p>
+			<p class="codes selections">
+				(for %i in (*.mp4) do @echo file '%i') > list.txt<br>
+				ffmpeg -safe 0 -f concat -i list.txt -c copy output.mp4
+			</p>
+			<p>Concat protocol</p>
+			<p><i>Use this method with formats that support file-level concatenation (MPEG-1, MPEG-2 PS, DV). Do not use with MP4.</i></p>
+			<p class="codes selections">
+				ffmpeg.exe -i "concat:input1|input2" -codec copy output.mkv
 			</p>
 		</div>
 		<div class="about">
