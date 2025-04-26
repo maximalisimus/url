@@ -35,23 +35,50 @@ for /R "%CD%\" %%i IN (*.mov) do (
 			<p>Операции подстановки ссылок на переменные команды FOR также расширены.</p>
 			<p>Допускается применение следующих синтаксических конструкций:</p>
 			<ul>
-				<li>%~I - из переменной %I удаляются обрамляющие кавычки (")</li>
-				<li>%~fI - переменная %I расширяется до полного имени файла</li>
-				<li>%~dI - из переменной %I выделяется только имя диска</li>
-				<li>%~pI - из переменной %I выделяется только путь к файлу</li>
-				<li>%~nI - из переменной %I выделяется только имя файла</li>
-				<li>%~xI - из переменной %I выделяется расширение имени файла</li>
-				<li>%~sI - полученный путь содержит только короткие имена</li>
-				<li>%~aI - переменная %I расширяется до атрибутов файла</li>
-				<li>%~tI - переменная %I расширяется до даты /времени файла</li>
-				<li>%~zI - переменная %I расширяется до размера файла</li>
+				<li><b>%~I</b> - из переменной %I удаляются обрамляющие кавычки (")</li>
+				<li><b>%~fI</b> - переменная %I расширяется до полного имени файла</li>
+				<li><b>%~dI</b> - из переменной %I выделяется только имя диска</li>
+				<li><b>%~pI</b> - из переменной %I выделяется только путь к файлу</li>
+				<li><b>%~nI</b> - из переменной %I выделяется только имя файла</li>
+				<li><b>%~xI</b> - из переменной %I выделяется расширение имени файла</li>
+				<li><b>%~sI</b> - полученный путь содержит только короткие имена</li>
+				<li><b>%~aI</b> - переменная %I расширяется до атрибутов файла</li>
+				<li><b>%~tI</b> - переменная %I расширяется до даты /времени файла</li>
+				<li><b>%~zI</b> - переменная %I расширяется до размера файла</li>
 			</ul>
+			<h3>Example.</h3>
 			<p class="selections" style="border-left: 5px solid #548eaa; background-color: #ccdfe8;">ffmpeg.exe -i "video.flv" -vcodec libx264 -acodec aac "video.mp4"</p>
 			<p class="selections" style="border-left: 5px solid #548eaa; background-color: #ccdfe8;">ffmpeg.exe -i "video.mp4" -vcodec libx264 -acodec aac "video2.mp4"</p>
 			<p class="selections" style="border-left: 5px solid #548eaa; background-color: #ccdfe8;">ffmpeg.exe -i "master.mkv" -vcodec libx264 -acodec aac "master.mp4"</p>
 			<p class="selections" style="border-left: 5px solid #548eaa; background-color: #ccdfe8;">ffmpeg.exe -i video.mp4 -b:a 192K -vn music.mp3</p>
+			<h4>&laquo;-c:v&raquo; and &laquo;-vcodec&raquo;.</h4>
 			<p class="selections" style="border-left: 5px solid #808080; background-color: #d9d9d9;">-c:v mpeg4</p>
 			<p class="selections" style="border-left: 5px solid #808080; background-color: #d9d9d9;">-vcodec mpeg4</p>
+			<h3>&laquo;.ogg&raquo; to &laquo;.mp3&raquo;.</h3>
+			<p class="codes selections">
+				ffmpeg.exe -i input.wav -vn -ar 44100 -ac 2 -b:a 192k output.mp3
+			</p>
+			<p>Explanation of the used arguments in this example.</p>
+			<ul>
+				<li><b>-i</b> - input file</li>
+				<li><b>-vn</b> - Disable video, to make sure no video (including album cover image) is included if the source would be a video file</li>
+				<li><b>-ar</b> - Set the audio sampling frequency. For output streams it is set by default to the frequency of the corresponding input stream. For input streams this option only makes sense for audio grabbing devices and raw demuxers and is mapped to the corresponding demuxer options.</li>
+				<li><b>-ac</b> - Set the number of audio channels. For output streams it is set by default to the number of input audio channels. For input streams this option only makes sense for audio grabbing devices and raw demuxers and is mapped to the corresponding demuxer options. So used here to make sure it is stereo (2 channels)</li>
+				<li><b>-b:a 192k</b> - Converts the audio bit-rate to be exact 192 KB/s (192 kibibit per second).But maybe use <b>-q:a 2</b> instead, which allows the encoder to pick from 170 to 210 KB/s quality-range (average 192 KB/s). But <b>-q</b> format may not be compatible with some old player-hardware.</li>
+			</ul>
+			<p>Note to see docs about bit-rate argument's differences. Because maybe that option is the most important one, as it decides the "quality" versus "output size" versus "old mp3-player compatibility".</p>
+			<ul>
+				<li><b>-b:a</b> is for CBR (constant-bit-rate), which should be compatible with most old players, but may take more file-size.</li>
+				<li><b>-q:a</b> or <b>-qscale:a</b> alias, is for VBR (variable-bit-rate).</li>
+				<li><b>--abr</b> is for ABR (adaptive-bit-rate), which is a combo of CBR and VBR modes, but <b>--abr</b> argument needs <b>-b</b> to be passed as well (because ffmpeg does not take any parameters after <b>--abr</b>, unlike lame --abr executable).</li>
+			</ul>
+			<p class="codes selections">
+				ffmpeg.exe -i audio.ogg -acodec libmp3lame audio.mp3
+			</p>
+			<p>Bash script.</p>
+			<p class="codes selections">
+				for i in *.ogg; do ffmpeg -i "$i" -acodec libmp3lame "${i%.*}.mp3"; done
+			</p>
 		</div>
 		<div class="about">
 			<img class="myabout" src="../html/about.ico" width="32px"/>
