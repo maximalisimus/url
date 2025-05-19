@@ -143,7 +143,7 @@ for /R "%CD%\" %%i IN (*.mov) do (
 			<p class="codes selections">
 				ffmpeg.exe -i "concat:input1|input2" -codec copy output.mkv
 			</p>
-			<p>Replace audio.</p>
+			<h3>Replace audio.</h3>
 			<p class="codes selections">
 				ffmpeg.exe -i 1.mp4 -i 1.mp3 -c:v copy -map 0:v:0 -map 1:a:0 ../1.mp4
 			</p>
