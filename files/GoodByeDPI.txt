@@ -46,5 +46,25 @@ start "" goodbyedpi.exe -7 -e1 -q —fake-gen 15 —fake-from-hex 16030301350100
 --fake-gen <value> — автоматически генерирует случайные фейковые пакеты, которые могут использоваться для создания «шума» в трафике. 1
 --fake-resend <value> — повторная отправка каждого фейкового пакета может создать дополнительную нагрузку на систему DPI, потенциально снижая её способность анализировать трафик в реальном времени. 1
  
- 
+
+
+chrome://flags
+about:config
+opera://flags
+browser://flags
+edge://flags
+
+Quic
+Kyber
+
+Experimental QUIC protocol
+TLS 1.3 hybrized Kyber support
+
+about:config
+network.http.http3.enabled
+true
+
+
+
+
 
