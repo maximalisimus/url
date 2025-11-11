@@ -23,7 +23,11 @@ start "" goodbyedpi.exe -e1 -q --native-frag --wrong-chksum --fake-from-hex 1603
 -e 1 -q --reverse-frag --wrong-chksum --fake-from-hex 1603030135010001310303424143facf5c983ac8ff20b819cfd634cbf5143c0005b2b8b142a6cd335012c220008969b6b387683dedb4114d466ca90be3212b2bde0c4f56261a9801 --fake-gen 15 --set-ttl 3
  
 start "" goodbyedpi.exe -1 -e1 -f 1 --frag-by-sni -q --wrong-chksum --fake-gen 15 --set-ttl 5 --fake-from-hex 8b7f1f0e48059270a50640acb7c7af728a8f40d281372ca15c72ded8e4716ff155cfb4c888f873e5b7544dc9e651568d17e85e3926f17eeaa58f --dns-addr 77.88.8.8 --dns-port 1253 --dnsv6-addr 2a02:6b8::feed:0ff --dnsv6-port 1253 --blacklist ..\russia-blacklist.txt --blacklist ..\russia-youtube.txt
- 
+
+start "" goodbyedpi.exe -7 -e2 -f 1 --reverse-frag —fake-gen 15 —fake-from-hex 1603030135010001310303424143facf5c983ac8ff20b819cfd634cbf5143c0005b2b8b142a6cd335012c220008969b6b387683dedb4114d466ca90be3212b2bde0c4f56261a9801
+
+start "" goodbyedpi.exe -7 -e1 -q —fake-gen 15 —fake-from-hex 1603030135010001310303424143facf5c983ac8ff20b819cfd634cbf5143c0005b2b8b142a6cd335012c220008969b6b387683dedb4114d466ca90be3212b2bde0c4f56261a9801 --dns-addr 77.88.8.8 --dns-port 1253 --dnsv6-addr 2a02:6b8::feed:0ff --dnsv6-port 1253 --blacklist ..\russia-blacklist.txt --blacklist ..\russia-youtube.txt
+
  
 -q (do_block_quic) — блокирует трафик, использующий протокол QUIC, который часто используется для обхода DPI и улучшения скорости загрузки. 1
 -r (do_host) — включает блокировку по хосту, программа будет фильтровать или изменять трафик на основе имени хоста. 1
