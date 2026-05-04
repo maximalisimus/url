@@ -1,0 +1,13 @@
+
+chrom-icon: 
+
+"%SystemDrive%\Program Files (x86)\Google\Chrome\Application\chrome.exe" --user-data-dir="%CD%\Profile" --profile-directory="Home" --new-window "chrome://new-tab-page" --no-sandbox --in-process-plugins --disable-features=OptimizationGuideModelDownloading
+
+chrome-profile.bat
+
+@cd/d "%~dp0"
+@echo off
+SET PATH=%CD%\;%PATH%
+"%SystemDrive%\Program Files (x86)\Google\Chrome\Application\chrome.exe" --user-data-dir="%CD%\Profile" --profile-directory="Home" --new-window "chrome://new-tab-page" --no-sandbox --in-process-plugins --disable-features=OptimizationGuideModelDownloading
+
+
