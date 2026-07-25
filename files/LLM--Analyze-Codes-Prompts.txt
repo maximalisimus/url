@@ -1,0 +1,27 @@
+﻿
+## КОНТЕКСТ ПРОЕКТА:
+Проект: E-commerce платформа на Django
+Язык программирования: Python 3.11
+Фреймворки: Django 4.2, Django REST Framework
+Архитектурный стиль: Монолит с разделением на приложения
+
+## ТЕКУЩАЯ ЗАДАЧА:
+Проанализируй модуль аутентификации, найди уязвимости и предложи улучшения.
+
+## ПРЕДОСТАВЛЕННЫЙ КОД ДЛЯ АНАЛИЗА:
+python
+# authentication/views.py
+from django.contrib.auth import authenticate, login
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+class LoginView(APIView):
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            login(request, user)
+            return Response({'status': 'success'})
+        return Response({'status': 'error'}, status=400)
+
